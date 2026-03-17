@@ -31,3 +31,48 @@ const myObject = { "myProperty" : true, "mySecondProperty" : false };
 console.log(Object.values(myObject));
 console.log(Object.keys(myObject));
 
+const myArr = [true, false];
+myArr.forEach((myElement, i, originalArray) => {
+    console.log(i, myElement, originalArray);
+});
+
+const myMap = new Map([
+  ['myKey', true],
+  ['mySecondKey', false ],
+]);
+myMap.forEach( ( myValue, myKey, originalMap ) => {
+    console.log( myValue, myKey, originalMap  );
+});
+
+const mySet = new Set([
+    true, false
+]);
+mySet.forEach( (myElement, myKey, originalSet) => {
+    console.log(myElement, myKey, originalSet);
+});
+
+const myterable = [1, 2, 3];
+const myIterator = myterable[ Symbol.iterator]();
+
+console.log(myterable, myIterator);
+console.log(myIterator.next());
+
+function* myGenfunction() {
+    yield 'first value';
+    yield 'second value';
+    return 3;
+};
+
+const genobject = myGenfunction();
+console.log(genobject.next());
+console.log(genobject.next());
+console.log(genobject.next());
+
+function* mynewgen() {
+    const fyield = yield;;
+    yield fyield + 10;
+};
+
+const myGenobj = mynewgen();
+console.log(myGenobj.next());
+console.log(myGenobj.next(5));
